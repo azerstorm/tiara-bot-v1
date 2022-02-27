@@ -1,4 +1,4 @@
-from telegram import Update
+from telegram import Update, message
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import CallbackContext
@@ -11,7 +11,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 def start(update:Update, context:CallbackContext):
 
-    update.message.reply_text("Hi ayang {} kamu sehat kan?".format(update.message.from_user.full_name))
+    update.message.reply_text("Hi ayang {} kamu sehat kan? \xF0\x9F\x98\x8A".format(update.message.from_user.full_name))
 
 
 if __name__ == '__main__':
