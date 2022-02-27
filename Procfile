@@ -1,2 +1,1 @@
-web: python main.py
-heroku buildpacks:set heroku/python
+web: python main.py runserver 0.0.0.0:5000
