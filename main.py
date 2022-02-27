@@ -4,6 +4,10 @@ from telegram.ext import CommandHandler
 from telegram.ext import CallbackContext
 from config import TOKEN
 from config import PORT
+import logging
+
+
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 def start(update:Update, context:CallbackContext):
     update.message.reply_text("Hi ayang {} kamu sehat kan?".format(update.message.from_user.username))
