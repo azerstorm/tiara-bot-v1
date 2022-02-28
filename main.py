@@ -13,7 +13,7 @@ def start(update:Update, context:CallbackContext):
     update.message.reply_text("Hi ayang {}, hari ini kamu sehat kannn? 😊".format(update.message.from_user.first_name))
 
 def command_help(update:Update, context:CallbackContext):
-    update.message.reply_text("Iya sayang, aku ngebantu kamu kok 😊\n/start : Memulai\n/help : bantuan dari aku")
+    update.message.reply_text("Iya sayang, aku pasti ngebantu kamu kok 😊\n/start : Memulai\n/help : Bantuan dari aku")
 
 
 
