@@ -31,7 +31,7 @@ def inline_calendar_handler(update, context):
     selected,date = telegramcalendar.process_calendar_selection(update, context)
     if selected:
         context.bot.send_message(chat_id=update.callback_query.from_user.id, 
-        text=calendarmessages.calendar_response_message % (date.strftime("%d/%m/%Y")),
+        text=calendarmessages.calendar_response_message % (date.strftime("%d %MM %yyyy")),
         reply_markup=ReplyKeyboardRemove())
 
 if __name__ == '__main__':
