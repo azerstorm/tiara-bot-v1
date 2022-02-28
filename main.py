@@ -18,7 +18,7 @@ def start(update:Update, context:CallbackContext):
     update.message.reply_text("Hi ayang {}, hari ini kamu sehat kannn? 😊".format(update.message.from_user.first_name))
 
 def command_help(update:Update, context:CallbackContext):
-    update.message.reply_text("Iya sayang, aku pasti ngebantu kamu kok 😊\n/start : Memulai\n/help : Bantuan dari aku\n/calendar : Liyat calendar\n/remind : Buat ngingetin kamu\n/unset : Gk jadi aku ingetin")
+    update.message.reply_text("Iya sayang, aku pasti ngebantu kamu kok 😊\n/tolong : Aku always siap bantu kamu 🤗\n/kelender : Melihat kalender\n/remind : Ngingetin jadwal kamu 🥰\n/unset : Gk jadi aku ingetin 😔")
 
 def calendar_handler(update, context):
     update.message.reply_text(text=calendarmessages.calendar_message,
@@ -38,7 +38,7 @@ def inline_calendar_handler(update, context):
 
 # Alarm
 def reminder_word(update:Update, context:CallbackContext):
-    update.message.reply_text("Sayang, kalau kamu mau ku ingetin ketik /ingetin <isi waktunya> yaaa")
+    update.message.reply_text("Sayang, kalau kamu mau aku ingetin ketik /ingetin <isi waktunya> yaaa 😊")
 
 def set_timer(update: Update, context: CallbackContext):
     """Add a job to the queue."""
@@ -60,12 +60,12 @@ def set_timer(update: Update, context: CallbackContext):
         update.message.reply_text(text)
 
     except (IndexError, ValueError):
-        update.message.reply_text("Contohnya: /remindme <isi waktunya>")
+        update.message.reply_text("Contohnya: /ingetin <isi waktunya> sayanggg")
 
 def alarm(context: CallbackContext):
     """Send the alarm message."""
     job = context.job
-    context.bot.send_message(job.context, text='Sayanggg')
+    context.bot.send_message(job.context, text="Sayanggg, kamu ngga lupa kan? 🤭")
 
 def unset(update: Update, context: CallbackContext):
     """Remove the job if the user changed their mind."""
