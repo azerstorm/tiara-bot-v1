@@ -184,16 +184,6 @@ def cancel(update: Update, context: CallbackContext) -> int:
 
 #Instagram
 
-def search(update:Update, context:CallbackContext, msg):
-    for text in msg:
-        if '@' in text:
-            return text
-bot = telegram.Bot(token=TOKEN)
-MessageHandler(func=lambda msg: msg.text is not None and '@' is in msg.text)
-def at_answer(message):
-    texts = message.text.split()
-    at_text = search(texts)
-    bot.reply_to(message, 'https://instagram.com/{}'.format(at_text[1:]))
 
     
 
@@ -210,7 +200,6 @@ def main():
     dispatcher.add_handler(CommandHandler("ingetin", set_timer))
     dispatcher.add_handler(CommandHandler("unset", unset))
     
-    dispatcher.add_handler(CommandHandler("search", search))
     
     dispatcher.add_handler(CallbackQueryHandler(inline_handler))
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
