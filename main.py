@@ -87,8 +87,8 @@ def main():
     dispatcher.add_handler(CommandHandler("start", start))
     dispatcher.add_handler(CommandHandler("tolong", command_help))
     dispatcher.add_handler(CommandHandler("kalender", calendar_handler))
-    dispatcher.add_handler(CommandHandler("set alarm", set_timer))
-    dispatcher.add_handler(CommandHandler("unset alarm", unset))
+    dispatcher.add_handler(CommandHandler("setalarm", set_timer))
+    dispatcher.add_handler(CommandHandler("unsetalarm", unset))
     
     dispatcher.add_handler(CallbackQueryHandler(inline_handler))
 
