@@ -13,7 +13,7 @@ def start(update:Update, context:CallbackContext):
     update.message.reply_text("Hi ayang {}, hari ini kamu sehat kannn? 😊".format(update.message.from_user.first_name))
 
 def command_help(update:Update, context:CallbackContext):
-    update.message.reply_text("ALPHA = FEATURES MAY NOT WORK")
+    update.message.reply_text("Iya sayang, aku ngebantu kamu kok 😊\n/start : Memulai\n/help : bantuan dari aku")
 
 
 
@@ -25,6 +25,7 @@ if __name__ == '__main__':
 
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", command_help))
+
     updater.start_webhook("0.0.0.0", PORT, TOKEN, webhook_url='https://tiarabot.herokuapp.com/'+ TOKEN)
     updater.idle()
 
