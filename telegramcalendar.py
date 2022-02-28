@@ -1,14 +1,12 @@
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup,ReplyKeyboardRemove
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardRemove
 import datetime
 import calendar
 import calendarmessages
 import utils
 
-
 def create_callback_data(action,year,month,day):
     """ Create the callback data associated to each button"""
     return calendarmessages.CALENDAR_CALLBACK + ";" + ";".join([action,str(year),str(month),str(day)])
-
 
 def create_calendar(year=None,month=None):
     """

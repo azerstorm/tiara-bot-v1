@@ -12,6 +12,7 @@ import telegramcalendar
 import utils
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
+
 def start(update:Update, context:CallbackContext):
     update.message.reply_text("Hi ayang {}, hari ini kamu sehat kannn? 😊".format(update.message.from_user.first_name))
 
@@ -33,6 +34,8 @@ def inline_calendar_handler(update, context):
         context.bot.send_message(chat_id = update.callback_query.from_user.id, 
         text = calendarmessages.calendar_response_message % (date.strftime("%d %B %Y")),
         reply_markup = ReplyKeyboardRemove())
+
+
 
 if __name__ == '__main__':
     updater = Updater(TOKEN, use_context=True)
