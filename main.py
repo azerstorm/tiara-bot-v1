@@ -1,12 +1,10 @@
-from telegram import Update, message
-import telegram
+from telegram import Update
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import CallbackContext
 from config import TOKEN
 from config import PORT
 import logging
-import time
 
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -27,39 +25,38 @@ if __name__ == '__main__':
 
 
 
-
 def findat(msg):
     # from a list of texts, it finds the one with the '@' sign
     for i in msg:
         if '@' in i:
             return i
 
-bot = telegram.Bot(token=TOKEN)
+def send_findig(update:Update, message):
+    update.message.reply_text(message, '(placeholder text)')
 
-@bot.message_handler(commands=['findig']) # welcome message handler
-def send_welcome(message):
-    bot.reply_to(message, '(placeholder text)')
+def send_help(update:Update, message):
+    update.message.reply_text(message, 'ALPHA = FEATURES MAY NOT WORK')
 
-@bot.message_handler(commands=['help']) # help message handler
-def send_welcome(message):
-    bot.reply_to(message, 'ALPHA = FEATURES MAY NOT WORK')
+dp.add_handler(CommandHandler("findig", send_findig))
+dp.add_handler(CommandHandler("help", send_help))
 
-@bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
-# lambda function finds messages with the '@' sign in them
-# in case msg.text doesn't exist, the handler doesn't process it
-def at_converter(message):
-    texts = message.text.split()
-    at_text = findat(texts)
-    if at_text == '@': # in case it's just the '@', skip
-        pass
-    else:
-        insta_link = "https://instagram.com/{}".format(at_text[1:])
-        bot.reply_to(message, insta_link)
 
-while True:
-    try:
-        bot.polling(none_stop=True)
-        # ConnectionError and ReadTimeout because of possible timout of the requests library
-        # maybe there are others, therefore Exception
-    except Exception:
-        time.sleep(15)
+# @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
+# # lambda function finds messages with the '@' sign in them
+# # in case msg.text doesn't exist, the handler doesn't process it
+# def at_converter(message):
+#     texts = message.text.split()
+#     at_text = findat(texts)
+#     if at_text == '@': # in case it's just the '@', skip
+#         pass
+#     else:
+#         insta_link = "https://instagram.com/{}".format(at_text[1:])
+#         bot.reply_to(message, insta_link)
+
+# while True:
+#     try:
+#         bot.polling(none_stop=True)
+#         # ConnectionError and ReadTimeout because of possible timout of the requests library
+#         # maybe there are others, therefore Exception
+#     except Exception:
+#         time.sleep(15)
