@@ -1,11 +1,11 @@
 from telegram import Update, message
+import telegram
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import CallbackContext
 from config import TOKEN
 from config import PORT
 import logging
-import telebot
 import time
 
 
@@ -34,7 +34,7 @@ def findat(msg):
         if '@' in i:
             return i
 
-bot = telebot.TeleBot(token=TOKEN)
+bot = telegram.Bot(token=TOKEN)
 
 @bot.message_handler(commands=['findig']) # welcome message handler
 def send_welcome(message):
