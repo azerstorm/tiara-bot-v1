@@ -4,7 +4,6 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import CallbackContext
 from telegram.ext import CallbackQueryHandler
-from babel.dates import format_date, format_datetime, format_time
 from config import TOKEN
 from config import PORT
 import logging
@@ -32,7 +31,7 @@ def inline_calendar_handler(update, context):
     selected,date = telegramcalendar.process_calendar_selection(update, context)
     if selected:
         context.bot.send_message(chat_id=update.callback_query.from_user.id, 
-        text=calendarmessages.calendar_response_message % (format_date(date.strftime("%A, %d %B %Y"), locale='id_ID')),
+        text=calendarmessages.calendar_response_message % (date.strftime("%A, %d %B %Y")),
         reply_markup=ReplyKeyboardRemove())
 
 if __name__ == '__main__':
