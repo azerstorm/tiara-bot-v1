@@ -11,6 +11,7 @@ import calendarmessages
 import telegramcalendar
 import utils
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def start(update:Update, context:CallbackContext):
@@ -42,8 +43,8 @@ if __name__ == '__main__':
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("help", command_help))
-    dp.add_handler(CommandHandler("calendar", calendar_handler))
+    dp.add_handler(CommandHandler("tolong", command_help))
+    dp.add_handler(CommandHandler("kalender", calendar_handler))
     dp.add_handler(CallbackQueryHandler(inline_handler))
 
     updater.start_webhook("0.0.0.0", PORT, TOKEN, webhook_url='https://tiarabot.herokuapp.com/'+ TOKEN)
