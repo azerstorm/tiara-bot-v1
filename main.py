@@ -182,14 +182,13 @@ def cancel(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
         'Bye! I hope we can talk again some day.', reply_markup=ReplyKeyboardRemove()
     )
-
     return ConversationHandler.END
 
 #Conversation
 def handle_message(updata:Update, context:CallbackContext):
     text = str(updata.message.text).lower()
 
-    response = R.sample_response_filtered(text).__contains__(text)
+    response = R.sample_response_filtered.__contains__(text)
 
     response = R.sample_response(text)
 
