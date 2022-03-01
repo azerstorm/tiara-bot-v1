@@ -4,11 +4,14 @@ import re
 def sample_response(input_text):
     user_message = str(input_text).lower()
 
-    if user_message in ("hello", "hi", "hai"):
-        return "Iya sayang, ada apa?"
+    if user_message in ("hello", "hi", "hai", "uy", "uyy", "uyyy", "woy", "zey", "sayang", "sayangku", "sayang sayang", "darling", "my darling", "beb", "bebeb", "honey"):
+        return "Iya sayang, ada apa? 😊"
 
-    if user_message in ("sehat sayang", "sehat"):
-        return "Alhamdulillah deh"
+    if user_message in ("sehat", "sehat sayang", "sehat dong", "sehat dunds", "alhamdulillah sehat", "aman"):
+        return "Alhamdulillah deh sayang 🥰"
+    
+    if user_message in ("anj", "pantek", "kintil"):
+        return "Ih sayang jangan toxic dong 😔"
     
     if user_message in ("tanggal", "tanggal berapa"):
         now = datetime.now()
@@ -16,4 +19,4 @@ def sample_response(input_text):
 
         return str(date_time)
     
-    return "Maaf sayang, aku ngga ngerti :("
+    return "Darling 😊"
