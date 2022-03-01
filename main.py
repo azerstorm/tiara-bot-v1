@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 
 def start(update:Update, context:CallbackContext):
-    update.message.reply_text("Hi ayang {}, hari ini kamu sehat kannn? 😊".format(update.message.from_user.first_name))
+    update.message.reply_text("Ayanggg {}, hari ini kamu sehat kannn? 😊".format(update.message.from_user.first_name))
 
 def command_help(update:Update, context:CallbackContext):
     update.message.reply_text("Iya sayang, aku pasti ngebantu kamu kok 😊\n/tolong : Always siap bantu kamu 🤗\n/kelender : Melihat kalender\n/remind : Ngingetin jadwal kamu 🥰\n/unset : Gk jadi aku ingetin 😔")
