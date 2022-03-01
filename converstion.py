@@ -13,9 +13,6 @@ def sample_response(input_text):
     if user_message in ("kamu udah makan?", "kamu udah makan say?", "kamu udah makan sayang?", "udah makan belum?"):
         return "Udah dong sayang 😊"
     
-    if user_message in ("anj", "pantek", "kintil"):
-        return "Ih sayang jangan toxic dong 😔"
-        
     if user_message in ("iya maaf", "iya maaf sayang"):
         return "Tenang sayang chill 😊"
 
@@ -26,3 +23,11 @@ def sample_response(input_text):
         return str(date_time)
     
     return "Darling 😊"
+
+def sample_response_filtered(input_text):
+    user_message = str(input_text).lower()
+
+    if user_message in ("anj", "pantek", "kintil"):
+        return "Ih sayang jangan toxic dong 😔"
+
+    return "Sayanggg"
