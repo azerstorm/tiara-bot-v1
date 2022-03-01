@@ -192,7 +192,7 @@ def handle_message(updata:Update, context:CallbackContext):
         response = R.sample_response_filtered(text)
     else:
         response = R.sample_response(text)
-        updata.message.reply_text(response)
+    updata.message.reply_text(response)
 
 def error(update:Update, context:CallbackContext):
     print(f"Update {update} caused error {context.error}")
