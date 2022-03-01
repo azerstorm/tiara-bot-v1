@@ -16,8 +16,14 @@ def sample_response(input_text):
     if user_message in ("iya maaf", "iya maaf sayang"):
         return "Tenang sayang chill 😊"
 
-    if user_message in ("anj", "pantek", "kintil"):
-        return "Ih sayang jangan toxic dong 😔"
+    if user_message in ("kamu dimana?", "kamu dimana sayang?"):
+        return "Aku udah di rumah, kamu masih di tempat kerja?"
+
+    if user_message in ("masih sayang"):
+        return "Hari ini mendung kan? kamu mau aku jemput ngga? kan lumayan deket dari rumah"
+
+    if user_message in ("jalan kaki deket", "jalan kaki deket kok hehe"):
+        return "Ishh kan sekalian ke shelter nanti sayy"
 
     if user_message in ("tanggal", "tanggal berapa"):
         now = datetime.now()
