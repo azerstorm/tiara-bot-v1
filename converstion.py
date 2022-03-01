@@ -24,6 +24,12 @@ def sample_response(input_text):
 
     if user_message in ("jalan kaki deket", "jalan kaki deket kok hehe"):
         return "Ishh kan sekalian ke shelter nanti sayy"
+    
+    if user_message in ("nanti aku pulangnya kemaleman sayang"):
+        return "Makanya kan nanti aku anter pulang 🤭"
+
+    if user_message in ("kamu kenapa deh say?"):
+        return "Pengen ngobrol langsung lahh, kalau lewat chat kan bosen sayanggg"
 
     if user_message in ("tanggal", "tanggal berapa"):
         now = datetime.now()
