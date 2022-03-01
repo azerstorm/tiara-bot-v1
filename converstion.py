@@ -15,7 +15,10 @@ def sample_response(input_text):
     
     if user_message in ("anj", "pantek", "kintil"):
         return "Ih sayang jangan toxic dong 😔"
-    
+        
+    if user_message in ("iya maaf", "iya maaf sayang"):
+        return "Tenang sayang chill 😊"
+
     if user_message in ("tanggal", "tanggal berapa"):
         now = datetime.now()
         date_time = now.strftime("%d %B %Y")
