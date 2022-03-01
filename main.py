@@ -1,7 +1,9 @@
+from dis import dis
+from traceback import print_tb
+from urllib import response
 from telegram import Update
 from telegram import ReplyKeyboardRemove
 from telegram import ReplyKeyboardMarkup
-import telegram
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import CallbackContext
@@ -15,6 +17,7 @@ import logging
 import calendarmessages
 import telegramcalendar
 import utils
+import converstion as R
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -183,11 +186,14 @@ def cancel(update: Update, context: CallbackContext) -> int:
     return ConversationHandler.END
 
 #Conversation
+def handle_message(updata:Update, context:CallbackContext):
+    text = str(updata.message.text).lower()
+    response = R.sample_response(text)
 
+    updata.message.reply_text(response)
 
-
-
-    
+def error(update:Update, context:CallbackContext):
+    print(f"Update {update} caused error {context.error}")
 
 
 #Main Program
@@ -201,7 +207,8 @@ def main():
     dispatcher.add_handler(CommandHandler("remind", reminder_word))
     dispatcher.add_handler(CommandHandler("ingetin", set_timer))
     dispatcher.add_handler(CommandHandler("unset", unset))
-    
+    dispatcher.add_handler(MessageHandler(Filters.text, handle_message))
+    dispatcher.add_error_handler(error)
     
     dispatcher.add_handler(CallbackQueryHandler(inline_handler))
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
