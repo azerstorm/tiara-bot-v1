@@ -188,7 +188,6 @@ def cancel(update: Update, context: CallbackContext) -> int:
 def handle_message(updata:Update, context:CallbackContext):
     text = str(updata.message.text).lower()
 
-    response = R.sample_response_filtered(text)
     response = R.sample_response(text)
 
     updata.message.reply_text(response)
