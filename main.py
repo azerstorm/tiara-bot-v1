@@ -11,7 +11,7 @@ def start(update:Update, context:CallbackContext):
     update.message.reply_text("Ayanggg {}, hari ini kamu sehat kannn? 😊".format(update.message.from_user.first_name))
 
 def command_help(update:Update, context:CallbackContext):
-    update.message.reply_text("Iya sayang, aku pasti ngebantu kamu kok 😊\n/tolong : Always siap bantu kamu 🤗\n/kelender : Melihat kalender\n/remind : Ngingetin jadwal kamu 🥰\n/unset : Gk jadi aku ingetin 😔")
+    update.message.reply_text("Iya sayang, aku pasti ngebantu kamu kok 😊\n/kelender : Melihat kalender\n/remind : Ngingetin jadwal kamu 🥰\n/unset : Gk jadi aku ingetin 😔")
 
 #Calendar
 def calendar_handler(update, context):

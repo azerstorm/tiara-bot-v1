@@ -1,8 +1,8 @@
-from datetime import date, datetime
-import re
+from datetime import datetime
+
 
 def sample_response(input_text):
-    user_message = str(input_text).lower()
+    user_message = str(input_text).lower().contains()
 
     if user_message in ("hello", "hi", "hai", "uy", "uyy", "uyyy", "woy", "zey", "sayang", "sayangku", "sayang sayang", "darling", "my darling", "beb", "bebeb", "honey"):
         return "Iya sayang, ada apa? 😊"
@@ -14,7 +14,7 @@ def sample_response(input_text):
         return "Udah dong sayang 😊"
     
     if user_message in ("iya maaf", "iya maaf sayang"):
-        return "Tenang sayang chill 😊"
+        return "Chill sayang chill 🤗"
 
     if user_message in ("kamu dimana?", "kamu dimana sayang?"):
         return "Aku udah di rumah, kamu masih di tempat kerja?"
