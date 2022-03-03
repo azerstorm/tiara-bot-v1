@@ -2,7 +2,7 @@ from datetime import date, datetime
 import re
 
 def sample_response(input_text):
-    user_message = str(input_text).lower()
+    user_message = str(input_text).lower().__contains__
 
     if user_message in ("hello", "hi", "hai", "uy", "uyy", "uyyy", "woy", "zey", "sayang", "sayangku", "sayang sayang", "darling", "my darling", "beb", "bebeb", "honey"):
         return "Iya sayang, ada apa? 😊"

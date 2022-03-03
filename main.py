@@ -1,6 +1,3 @@
-from dis import dis
-from traceback import print_tb
-from urllib import response
 from telegram import Update
 from telegram import ReplyKeyboardRemove
 from telegram import ReplyKeyboardMarkup
