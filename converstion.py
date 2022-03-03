@@ -34,7 +34,6 @@ def sample_response(input_text):
     if user_message in ("tanggal", "tanggal berapa"):
         now = datetime.now()
         date_time = now.strftime("%d %B %Y")
-
         return str(date_time)
     
     return "Darling 😊"
