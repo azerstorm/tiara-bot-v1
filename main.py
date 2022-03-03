@@ -1,20 +1,8 @@
-from telegram import Update
-from telegram import ReplyKeyboardRemove
-from telegram import ReplyKeyboardMarkup
-from telegram.ext import Updater
-from telegram.ext import CommandHandler
-from telegram.ext import CallbackContext
-from telegram.ext import CallbackQueryHandler
-from telegram.ext import MessageHandler
-from telegram.ext import Filters
-from telegram.ext import ConversationHandler
-from config import TOKEN
-from config import PORT
-import logging
-import calendarmessages
-import telegramcalendar
-import utils
-import converstion as R
+from telegram import Update, ReplyKeyboardRemove, ReplyKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, CallbackContext, CallbackQueryHandler, MessageHandler, Filters, ConversationHandler
+from config import TOKEN, PORT
+import logging, calendarmessages, telegramcalendar, utils, converstion as R
+
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
