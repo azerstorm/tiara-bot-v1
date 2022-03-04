@@ -191,8 +191,7 @@ def main():
     dispatcher.add_handler(CommandHandler("remind", reminder_word))
     dispatcher.add_handler(CommandHandler("ingetin", set_timer))
     dispatcher.add_handler(CommandHandler("unset", unset))
-    dispatcher.add_handler(MessageHandler(Filters.text, handle_message))
-    dispatcher.add_error_handler(error)
+
     
     dispatcher.add_handler(CallbackQueryHandler(inline_handler))
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
@@ -211,7 +210,9 @@ def main():
     )
     dispatcher.add_handler(conv_handler)
 
-    # Kabar
+    #Convers
+    dispatcher.add_handler(MessageHandler(Filters.text, handle_message))
+    dispatcher.add_error_handler(error)
    
     # Start the Bot
     updater.start_webhook("0.0.0.0", PORT, TOKEN, webhook_url='https://tiarabot.herokuapp.com/'+ TOKEN)
