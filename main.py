@@ -82,14 +82,13 @@ GENDER, PHOTO, LOCATION, BIO = range(4)
 
 def confess(update: Update, context: CallbackContext) -> int:
     """Starts the conversation and asks the user about their gender."""
-    reply_keyboard = [['Boy', 'Girl', 'Other']]
+    reply_keyboard = [['Gay', 'Gay']]
 
     update.message.reply_text(
-        'Hi! My name is Professor Bot. I will hold a conversation with you. '
         'Send /cancel to stop talking to me.\n\n'
-        'Are you a boy or a girl?',
+        'Are you a Gay or a Gay?',
         reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Boy or Girl?'
+            reply_keyboard, one_time_keyboard=True, input_field_placeholder='Gay or Gay?'
         ),
     )
 
@@ -100,8 +99,8 @@ def gender(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("Gender of %s: %s", user.first_name, update.message.text)
     update.message.reply_text(
-        'I see! Please send me a photo of yourself, '
-        'so I know what you look like, or send /skip if you don\'t want to.',
+        'Aku udah liat, Coba kirim photo kamu, '
+        'Jadi aku tau wujud kamu seperti apa hehe, atau send /skip kalau kamu tidak mau',
         reply_markup=ReplyKeyboardRemove(),
     )
 
@@ -114,7 +113,7 @@ def photo(update: Update, context: CallbackContext) -> int:
     photo_file.download('user_photo.jpg')
     logger.info("Photo of %s: %s", user.first_name, 'user_photo.jpg')
     update.message.reply_text(
-        'Gorgeous! Now, send me your location please, or send /skip if you don\'t want to.'
+        'Naysee, coba kirim lokasi kamu atau /skip kalau kamu gk mau'
     )
 
     return LOCATION
@@ -147,7 +146,7 @@ def skip_location(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("User %s did not send a location.", user.first_name)
     update.message.reply_text(
-        'You seem a bit paranoid! At last, tell me something about yourself.'
+        'Kamu introvert yaa, Coba tulis sesuatu tentang diri kamu.'
     )
 
     return BIO
@@ -156,7 +155,7 @@ def bio(update: Update, context: CallbackContext) -> int:
     """Stores the info about the user and ends the conversation."""
     user = update.message.from_user
     logger.info("Bio of %s: %s", user.first_name, update.message.text)
-    update.message.reply_text('Thank you! I hope we can talk again some day.')
+    update.message.reply_text('Makasih, aku harap kita bisa chatting lagi suatu saat')
 
     return ConversationHandler.END
 
@@ -165,7 +164,7 @@ def cancel(update: Update, context: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("User %s canceled the conversation.", user.first_name)
     update.message.reply_text(
-        'Bye! I hope we can talk again some day.', reply_markup=ReplyKeyboardRemove()
+        'Makasih, aku harap kita bisa chatting lagi suatu saat', reply_markup=ReplyKeyboardRemove()
     )
     return ConversationHandler.END
 
@@ -200,7 +199,7 @@ def main():
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("confess", confess)],
         states={
-            GENDER: [MessageHandler(Filters.regex('^(Boy|Girl|Other)$'), gender)],
+            GENDER: [MessageHandler(Filters.regex('^(Gay|Gay)$'), gender)],
             PHOTO: [MessageHandler(Filters.photo, photo), CommandHandler("skip", skip_photo)],
             LOCATION: [
                 MessageHandler(Filters.location, location),
