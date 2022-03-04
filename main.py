@@ -82,7 +82,7 @@ GENDER, PHOTO, LOCATION, BIO = range(4)
 
 def confess(update: Update, context: CallbackContext) -> int:
     """Starts the conversation and asks the user about their gender."""
-    reply_keyboard = [['Gay', 'Gay']]
+    reply_keyboard = ['Gay', 'Gay']
 
     update.message.reply_text(
         'Send /cancel to stop talking to me.\n\n'
